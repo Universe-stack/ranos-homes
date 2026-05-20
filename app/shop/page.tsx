@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { Suspense, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -23,7 +23,7 @@ interface ProductItem {
   featured?: boolean;
 }
 
-export default function ShopPage() {
+function ShopPageContent() {
   const searchParams = useSearchParams();
   const [showMoreProducts, setShowMoreProducts] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -440,5 +440,23 @@ export default function ShopPage() {
 
       <Footer />
     </main>
+  );
+}
+
+export default function ShopPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="flex min-h-screen flex-col">
+          <Header />
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-12 py-20">
+            <p className="font-[family:var(--font-body)] text-[#4f4441]">Loading shop...</p>
+          </div>
+          <Footer />
+        </main>
+      }
+    >
+      <ShopPageContent />
+    </Suspense>
   );
 }
