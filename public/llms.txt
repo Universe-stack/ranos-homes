@@ -1,0 +1,22 @@
+# Ranos Homes
+
+## About
+Ranos Homes is a Nigerian furniture maker and interior design studio focused on premium furniture, custom pieces, and residential and commercial interior projects.
+
+## What We Do
+- Custom and ready-made furniture for living rooms, bedrooms, dining areas, and offices
+- Interior design services for homes and commercial spaces
+- Furniture discovery and enquiries through WhatsApp-first lead capture
+
+## Content Priorities
+- Furniture store in Lagos
+- Luxury furniture Nigeria
+- Buy sofa Lagos
+- Interior designer Lagos
+- Nigerian home decor and furniture buying guides
+
+## Website Notes
+- The site is built with Next.js
+- Product and content management is planned for Sanity CMS
+- Product imagery should be optimised with Cloudinary
+- Payments are not implemented; all high-intent enquiries go to WhatsApp

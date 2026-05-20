@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), "Instrument Sans", var(--font-fallback), "Lato", "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+@keyframes logo-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.logo-marquee {
+  display: flex;
+  overflow: hidden;
+}
+
+.logo-marquee-track {
+  --logo-gap: 1.25rem;
+  --logo-count: 5;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 100%;
+  gap: var(--logo-gap);
+  align-items: center;
+  animation: logo-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-item {
+  flex: 0 0 calc((100% - (var(--logo-count) - 1) * var(--logo-gap)) / var(--logo-count));
+  text-align: center;
+}
+
+@media (min-width: 1024px) {
+  .logo-marquee-track {
+    --logo-gap: 2rem;
+  }
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
