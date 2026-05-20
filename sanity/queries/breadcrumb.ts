@@ -1,7 +1,5 @@
 import { createSanityClient } from '../lib/client';
 
-const client = createSanityClient();
-
 export interface BreadcrumbProduct {
   _id: string;
   title: string;
@@ -25,6 +23,8 @@ export async function getProductForBreadcrumb(
   productId: string
 ): Promise<BreadcrumbProduct | null> {
   try {
+    const client = createSanityClient();
+
     const product = await client.fetch<BreadcrumbProduct>(
       `*[_id == $id][0] {
         _id,
@@ -51,6 +51,8 @@ export async function getProductForBreadcrumb(
  */
 export async function getCategoryForBreadcrumb(categoryId: string) {
   try {
+    const client = createSanityClient();
+
     const category = await client.fetch(
       `*[_id == $id][0] {
         _id,
